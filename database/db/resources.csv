@@ -1,0 +1,8 @@
+id,user_id,class_id,subject_id,tag_id,title,slug,price,file,type,size,description,created_at,updated_at
+3,1,11,3,4,Introduction to Programming,introduction-to-programming,500,1664290961java presentation.pdf,pdf,312227,hello,2022-09-27 15:02:41,2022-09-27 15:53:30
+4,1,9,1,2,P3 Science Exercise,p3-science-exercise,,1664295332brit-invoice.pdf,pdf,82728,Thiis is sample description,2022-09-27 16:15:32,2022-09-27 16:15:32
+5,1,10,3,1,Primary 7 Lecture notes,primary-7-lecture-notes,800,1664295475Camp Kennedy Report 2021.pdf,pdf,5304681,This is sample description,2022-09-27 16:17:55,2022-09-27 16:17:55
+6,1,11,3,1,Information Technology Diploma Notes,information-technology-diploma-notes,300,1664295526CAMP KENNEDY ALUMNI ENGAGEMENT STRATEGY 2022 V1.docx,docx,8677999,This is sample description,2022-09-27 16:18:46,2022-09-27 16:18:46
+7,1,12,7,4,Sample Resource,sample-resource,500,1664297186BA-LOOKBOOK-offline-version.pdf,pdf,20697584,This is a simple description,2022-09-27 16:46:27,2022-09-27 16:46:27
+9,1,11,7,1,Computer Science lecture notes,computer-science-lecture-notes,0,1664351352Camp Kennedy Report 2021.pdf,pdf,5304681,These are lecture notes for computer science,2022-09-28 07:49:12,2022-09-28 07:49:12
+10,1,9,1,6,Sample testing resource,sample-testing-resource,0,1664353318CAMP KENNEDY ALUMNI ENGAGEMENT STRATEGY 2022 V1.docx,docx,8677999,<p>Hello world and the rest of the people were not invited to the congregation.</p><p><b>This led to the grouping of</b></p>,2022-09-28 08:21:59,2022-09-28 08:21:59
