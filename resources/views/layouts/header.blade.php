@@ -1,50 +1,46 @@
-<div class="container-fluid nav-bar bg-transparent">
-    <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center text-center">
-            
-            <div class="">
-                <img class="img-fluid" src="{{ asset('logo.png') }}" alt="Icon" style="width: 203px; height: 70px;">
-            </div>
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        @guest
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto">
-                <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Browse By</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="{{ route('all-resources', ['all', 'resources']) }}" class="dropdown-item">Subjects</a>
-                        <a href="{{ route('all-resources', ['all', 'resources']) }}" class="dropdown-item">Classes</a>
-                        <a href="{{ route('all-resources', ['all', 'resources']) }}" class="dropdown-item">Tags</a>
-                    </div>
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="{{ url('/') }}"><img src="{{ asset('logo.png') }}" alt=""></a>
                 </div>
-                <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="{{ route('auth') }}" class="btn btn-primary px-3 d-none d-lg-flex">Login/Register</a>
-        </div>
-        @else
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto">
-                <a href="{{ route('admin') }}" class="nav-item nav-link">Dashboard</a>
-                <a href="{{ url('/') }}" class="nav-item nav-link">View Site</a>
-                <a href="{{ route('resource-index') }}" class="nav-item nav-link">Resources</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="{{ route('subject-index') }}" class="dropdown-item">Subject</a>
-                        <a href="{{ route('class-index') }}" class="dropdown-item">Classes</a>
-                        <a href="{{ route('tag-index') }}" class="dropdown-item">Tags</a>
-                    </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            @guest
+                            <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('all-resources', ['curriculum', 'old']) }}">Old Curriculum</a></li>
+                            <li><a href="{{ route('all-resources', ['curriculum', 'new']) }}">New Curriculum</a></li>
+                            <li><a href="#">Browse By</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{ route('all-resources', ['all', 'resources']) }}">Subjects</a></li>
+                                    <li><a href="{{ route('all-resources', ['all', 'resources']) }}">Classes</a></li>
+                                    <li><a href="{{ route('all-resources', ['all', 'resources']) }}">Tags</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ route('about') }}">About us</a></li>
+                            <li><a href="{{ route('auth') }}">Login</a></li>
+                            @else
+                            <li><a href="{{ route('admin') }}">Dashboard</a></li>
+                            <li><a href="{{ url('/') }}">View Site</a></li>
+                            <li><a href="{{ route('resource-index') }}">Resources</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{ route('subject-index') }}">Subject</a></li>
+                                    <li><a href="{{ route('class-index') }}">Classes</a></li>
+                                    <li><a href="{{ route('tag-index') }}">Tags</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ route('log-out') }}">Logout</a></li>
+                            @endguest
+                        </ul>
+                    </nav>
                 </div>
-                <a href="#" class="nav-item nav-link active">Users</a>
             </div>
-            <a href="{{ route('log-out') }}" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
         </div>
-        @endguest
-
-    </nav>
-</div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>

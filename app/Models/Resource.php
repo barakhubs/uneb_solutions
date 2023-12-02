@@ -23,7 +23,8 @@ class Resource extends Model
         'description',
         'file',
         'type',
-        'size'
+        'size',
+        'curriculum'
     ];
 
     public function user(): BelongsTo

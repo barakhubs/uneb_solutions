@@ -3,6 +3,20 @@
 @section('title', 'Admin')
 
 @section('content')
+<div class="breadcrumb-area set-bg" data-setbg="{{ asset('new/img/breadcrumb/breadcrumb-normal.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Dashboard</h2>
+                    <div class="breadcrumb__option">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-xxl py-5">
     <div class="container">
         <div class="mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">

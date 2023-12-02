@@ -15,6 +15,7 @@ use Flasher\Prime\FlasherInterface;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Str;
 
 class MainController extends Controller
 {
@@ -127,6 +128,9 @@ class MainController extends Controller
             $tag        = Tags::where('slug', $slug)->first();
             $resources  = Resource::where('tag_id', $tag->id)->paginate(10);
             $title      = $tag->tag;
+        } elseif($keyword == 'curriculum') {
+            $resources  = Resource::where('curriculum', $slug)->paginate(10);
+            $title      = Str::ucfirst($slug . ' Curriculum');
         } else{
             $resources  = Resource::orderby('created_at', 'desc')->paginate(10);
             $title      = 'All Resources';

@@ -3,12 +3,25 @@
 @section('title', 'Subjects')
 
 @section('content')
+<div class="breadcrumb-area set-bg" data-setbg="{{ asset('new/img/breadcrumb/breadcrumb-normal.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Subjects</h2>
+                    <div class="breadcrumb__option">
+                        <a href="/admin"><i class="fa fa-home"></i> Dashboard</a>
+                        <span>Subjects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="container-xxl py-5">
         <div class="container">
             <div class="mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-3">Subjects</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod
-                    sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                <h3 class="mb-3">Subjects</h3>
             </div>
             <div class="row g-4">
                 <div class="col-md-5">
@@ -18,18 +31,18 @@
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-12">
-                                    <div class="form-floating">
+                                    <div class="mb-3">
+                                        <label for="title">Subject Title</label>
                                         <input type="text" name="title"
                                             class="form-control @error('title') is-invalid @enderror" id="name"
                                             placeholder="Subject title">
-                                        <label for="title">Subject Title</label>
                                         @error('title')
                                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                    <button class="btn btn-primary w-100 py-2" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -55,8 +68,8 @@
                                                 <td>{{ $item->title }}</td>
                                                 <td class="text-center">{{ $item->resource->count() }}</td>
                                                 <td>
-                                                    <span><a target="_blank" class="btn btn-primary" href="{{ route('all-resources', ['subjects', $item->slug])}}">View</a></span>
-                                                    <span><a class="btn btn-danger" href="#delete-{{ $item->id }}"
+                                                    <span><a target="_blank" class="btn btn-sm btn-primary" href="{{ route('all-resources', ['subjects', $item->slug])}}">View</a></span>
+                                                    <span><a class="btn btn-sm btn-danger" href="#delete-{{ $item->id }}"
                                                             data-bs-toggle="modal">Delete</a></span>
                                                 </td>
                                             </tr>

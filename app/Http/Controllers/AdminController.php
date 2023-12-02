@@ -192,7 +192,8 @@ class AdminController extends Controller
             'file'      => 'required|mimes:pdf,doc,docx,txt|max:20480',
             'class'     => 'required',
             'tag'       => 'required',
-            'subject'   => 'required'
+            'subject'   => 'required',
+            'curriculum' => 'required'
         ]);
 
         $fileName = time().$request->file('file')->getClientOriginalName();
@@ -218,7 +219,8 @@ class AdminController extends Controller
                 'file'          => $fileName,
                 'type'          => $type,
                 'size'          => $size,
-                'description'   => $request->description
+                'description'   => $request->description,
+                'curriculum'   => $request->curriculum
             ]);
 
         if($store){
@@ -232,12 +234,14 @@ class AdminController extends Controller
 
     public function updateResource (Request $request, $id, FlasherInterface $flasherInterface)
     {
+        // dd($request->all());
         $this->validate($request, [
             'title'     => 'required',
             'file'      => 'mimes:pdf,doc,docx,txt|max:20480',
             'class'     => 'required',
             'tag'       => 'required',
-            'subject'   => 'required'
+            'subject'   => 'required',
+            'curriculum' => 'required'
         ]);
 
         if  ($request->file('file')) {
@@ -268,7 +272,8 @@ class AdminController extends Controller
                 'file'          => $fileName,
                 'type'          => $type,
                 'size'          => $size,
-                'description'   => $request->description
+                'description'   => $request->description,
+                'curriculum'  => $request->curriculum
             ]);
 
 

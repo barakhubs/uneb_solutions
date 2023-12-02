@@ -3,84 +3,76 @@
 @section('title', 'Search ')
 
 @section('content')
+<div class="breadcrumb-area set-bg" data-setbg="{{ asset('new/img/breadcrumb/breadcrumb-normal.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                        <h4 class="mb-3 text-light">Search Results</h4>
+                        <p>Showing {{ $resources->count() }} results for {{ $keyword }}</p>
+                    <div class="breadcrumb__option">
+                        <a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a>
+                        <span>{{ $keyword }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Property List Start -->
     <div class="container-xxl py-5">
         <div class="container">
 
-            @include('layouts.search')
-
-            <div class="row g-0 gx-5 align-items-end">
-                <div class="col-lg-6 mb-3">
-                    <div class="text-start mx-auto mb-2">
-                        <h4 class="mb-3">Search Results</h4>
-                        <p>Showing {{ $resources->count() }} results for {{ $keyword }}</p>
-                    </div>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li style="text-transform: capitalize" class="breadcrumb-item active" aria-current="page">
-                                {{ $keyword }}</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-9">
                     <div class="row g-4">
                         @if ($resources->count() >= 1)
                             @foreach ($resources as $item)
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="property-item rounded overflow-hidden">
-                                        <div class="position-relative overflow-hidden">
-                                            <div
-                                                class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
-                                                For Sell</div>
-                                            <div
-                                                class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
-                                                Appartment</div>
+                            <div class="col-md-6">
+                                <div class="listing__item">
+                                    <div class="listing__item__text">
+                                        <div class="listing__item__text__inside">
+                                            <h5>{{ Str::limit($item->title, 40, '...') }}</h5>
+
+                                            <ul>
+                                                <small>
+                                                    <i class="fa fa-suitcase text-primary me-2"></i>
+                                                    <a href="{{ route('all-resources', ['subject', $item->subject->slug])}}" class="text-muted"><i>{{ $item->subject->title }} | </i></a>
+                                                    <a href="{{ route('all-resources', ['class', $item->class->slug])}}" class="text-muted"><i>{{ $item->class->class  }} | </i></a>
+                                                    <a href="{{ route('all-resources', ['tag', $item->tag->slug])}}" class="text-muted"><i>{{ $item->tag->tag }}</i></a>
+                                                </small>
+                                                <li>
+                                                    <div class="d-flex border-top">
+                                                        <label class="flex-fill border-end py-2">
+                                                            <i class="fa fa-download text-muted me-2"></i>
+                                                            @if (!empty($item->downloads))
+                                                                {{ $item->downloads->count() }}
+                                                            @else
+                                                                0
+                                                            @endif
+                                                        </label>
+                                                        <label class="flex-fill border-end py-2">
+                                                            <i class="fa fa-eye text-muted me-2"></i>
+                                                            @if (!empty($item->views))
+                                                                {{ $item->views->count }}
+                                                            @else
+                                                                0
+                                                            @endif
+                                                        </label>
+                                                        <label class="flex-fill py-2"><i class="fa fa-user text-muted me-2"></i> {{ $item->user->username }}</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="p-4 pb-0">
-                                            <h5 class="text-primary mb-3">
-                                                @if ($item->price == 0 || $item->price == '')
-                                                    Free
-                                                @else
-                                                    UGX {{ $item->price }}
-                                                @endif
-                                            </h5>
-                                            <a class="d-block h6 mb-2"
-                                                href="{{ route('view-file', $item->slug) }}">{{ Str::limit($item->title, 40, '...') }}</a>
-                                            <small>
-                                                <i class="fa fa-suitcase text-primary me-2"></i>
-                                                <a href="{{ route('all-resources', ['subject', $item->subject->slug]) }}"
-                                                    class="text-muted"><i>{{ $item->subject->title }} | </i></a>
-                                                <a href="{{ route('all-resources', ['class', $item->class->slug]) }}"
-                                                    class="text-muted"><i>{{ $item->class->class }} | </i></a>
-                                                <a href="{{ route('all-resources', ['tag', $item->tag->slug]) }}"
-                                                    class="text-muted"><i>{{ $item->tag->tag }}</i></a>
-                                            </small>
-                                        </div>
-                                        <div class="d-flex border-top">
-                                            <small class="flex-fill text-center border-end py-2">
-                                                <i class="fa fa-download text-primary me-2"></i>
-                                                @if (!empty($item->downloads))
-                                                    {{ $item->downloads->count() }}
-                                                @else
-                                                    0
-                                                @endif
-                                            </small>
-                                            <small class="flex-fill text-center border-end py-2">
-                                                <i class="fa fa-eye text-primary me-2"></i>
-                                                @if (!empty($item->views))
-                                                    {{ $item->views->count }}
-                                                @else
-                                                    0
-                                                @endif
-                                            </small>
-                                            <small class="flex-fill text-center py-2"><i
-                                                    class="fa fa-user text-primary me-2"></i>{{ $item->user->username }}</small>
+                                        <div class="listing__item__text__info">
+                                            <div class="listing__item__text__info__left">
+                                                <span>Free</span>
+                                            </div>
+                                            <div class="listing__item__text__info__right"><a href="{{ route('view-file', $item->slug) }}">Read more</a></div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         @else
                             <div class="col-lg-12 text-center">
@@ -92,14 +84,38 @@
                                 <a class="btn btn-primary py-3 px-5" href="/">Go Back To Home</a>
                             </div>
                         @endif
-                        {{ $resources->links() }}
                     </div>
                 </div>
 
                 <div class="col-lg-3">
                     <div class="border-start px-3">
                         <h4 class="text-primary">Filter</h4>
-                        <p><strong>By Tag</strong></p>
+                        <p><strong>By Curriculum</strong></p>
+                        <small>
+                            <span  class="me-2">
+                                <a href="{{ route('all-resources', ['curriculum', 'new']) }}">
+                                    New Curriculum
+                                </a>
+                                <span class="">(
+                                    @php
+                                        echo App\Models\Resource::where('curriculum', 'new')->get()->count()
+                                    @endphp)
+                                </span>
+                            </span>
+                        </small>
+                        <small>
+                            <span  class="me-2">
+                                <a href="{{ route('all-resources', ['curriculum', 'old']) }}">
+                                    Old Curriculum
+                                </a>
+                                <span class="">(
+                                    @php
+                                        echo App\Models\Resource::where('curriculum', 'old')->get()->count()
+                                    @endphp)
+                                </span>
+                            </span>
+                        </small>
+                        <p class="mt-3"><strong>By Tag</strong></p>
                         <small>
                             @foreach ($tags as $item)
                                 <span  class="me-2">
@@ -135,6 +151,9 @@
                             @endforeach
                         </small>
                     </div>
+                </div>
+                <div class="m-5">
+                    {{ $resources->links()  }}
                 </div>
             </div>
         </div>

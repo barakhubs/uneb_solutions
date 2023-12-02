@@ -1,34 +1,36 @@
-<div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+<section class="hero set-bg" data-setbg="{{ asset('new/img/hero/hero-bg.jpg') }}">
     <div class="container">
-        <div class="row g-2">
-            <div class="col-md-10">
-                <form action="{{ route('search') }}" method="GET">
-                    <div class="row g-2">
-                        <div class="col-md-4">
-                            <input type="text" name="keyword" class="form-control border-0 py-3" placeholder="Search Keyword">
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-select border-0 py-3" name="subject">
-                                <option selected>Select Subject</option>
-                                @foreach ($subjects as $item)
-                                <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-select border-0 py-3" name="class">
-                                <option selected>Select Class</option>
-                                @foreach ($classes as $item)
-                                <option value="{{ $item->id }}">{{ $item->class }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hero__text">
+                    <div class="section-title">
+                        <h2>Discover Diverse UNEB Resources</h2>
+                        <p class="text-light">Explore a vast collection of past papers, solutions, mocks, assignments, exercises, tests, and termly examinations tailored to UNEB syllabi.</p>
                     </div>
+                    <div class="hero__search__form">
+                        <form action="{{ route('search') }}" method="GET">
+                            <input type="text" name="keyword" placeholder="Search...">
+                            <div class="select__option">
+                                <select name="subject">
+                                    <option value="">Choose Subject</option>
+                                    @foreach ($subjects as $item)
+                                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="select__option">
+                                <select name="class">
+                                    <option value="">Choose Class</option>
+                                    @foreach ($classes as $item)
+                                        <option value="{{ $item->id }}">{{ $item->class }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-light border-0 w-100 py-3">Search</button>
-            </div>
-        </form>
         </div>
     </div>
-</div>
+</section>

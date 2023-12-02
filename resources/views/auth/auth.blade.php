@@ -1,12 +1,27 @@
 @extends('layouts.app')
 
-@section('title', 'Login/Register')
+@section('title', 'Login')
 
 @section('content')
+<div class="breadcrumb-area set-bg" data-setbg="{{ asset('new/img/breadcrumb/breadcrumb-normal.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Login</h2>
+                    <div class="breadcrumb__option">
+                        <a href="/"><i class="fa fa-home"></i> Home</a>
+                        <span>Login</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                         <div>
                             <h4>Login</h4>
                             <form action="{{ route('login') }}" method="POST">
@@ -17,7 +32,7 @@
                                     <label class="form-label" for="email">Email </label>
                                     <input name="email" type="email" id="email" class="form-control @error('email') is-invalid @enderror"  />
                                     @error('email')
-                                        <small class="invalid-feedback" role="alert">{{ $message }}</small>                                    
+                                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
                                     @enderror
                                 </div>
 
@@ -26,7 +41,7 @@
                                     <label class="form-label" for="loginPassword">Password</label>
                                     <input type="password" name="password" id="loginPassword" class="form-control @error('password') is-invalid @enderror"" />
                                     @error('password')
-                                        <small class="invalid-feedback" role="alert">{{ $message }}</small>                                    
+                                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
                                     @enderror
                                 </div>
 
@@ -50,7 +65,7 @@
                                 <!-- Submit button -->
                                 <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Sign in</button>
                             </form>
-                        </div>>
+                        </div>
                 </div>
             </div>
         </div>

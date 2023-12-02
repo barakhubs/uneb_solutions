@@ -3,6 +3,21 @@
 @section('title', 'About Us')
 
 @section('content')
+<div class="breadcrumb-area set-bg" data-setbg="{{ asset('new/img/breadcrumb/breadcrumb-normal.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>About us</h2>
+                    <div class="breadcrumb__option">
+                        <a href="/"><i class="fa fa-home"></i> Home</a>
+                        <span>About us</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
      <!-- About Start -->
      <div class="container-xxl py-5">
         <div class="container">
@@ -13,12 +28,16 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-4">#About UNEB Solutions</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                    <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                    <h3 class="mb-4">#About UNEB Solutions</h3>
+                    <p class="mb-4">
+                        Welcome to UNEB Solutions, your premier source for UNEB examination resources in Uganda. Our platform is designed to empower students like you with the tools and materials needed to excel in the Primary Leaving Examination (PLE), Uganda Certificate of Education (UCE), and Uganda Advanced Certificate of Education (UACE).
+                    </p>
+                    <p>
+                        Whether you're preparing for PLE, UCE, or UACE, UNEB Solutions offers a comprehensive array of resources to meet your specific examination needs.
+                    </p>
+                    <p>
+                        Stay ahead with innovative study tools and resources that enhance your understanding of core subjects and prepare you for success.
+                    </p>
                 </div>
             </div>
         </div>
@@ -37,11 +56,14 @@
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                             <div class="mb-4">
-                                <h1 class="mb-3">Supercharge your knowledge today</h1>
+                                <h3 class="mb-3">Supercharge your knowledge today</h3>
                                 <p>With our complete list of UNEB resources for PLE, UCE and UACE</p>
+                                <p>
+                                    Don't let exam stress hold you back. Take charge of your academic journey with UNEB Solutions. Empower yourself with the tools and knowledge you need to succeed.
+                                </p>
                             </div>
-                            <a href="" class="btn btn-primary py-3 px-4 me-2">Start Now</a>
-                            <a href="" class="btn btn-dark py-3 px-4"></i>Browse Resources</a>
+                            <a href="{{ route('home') }}" class="btn btn-primary py-3 px-4 me-2">Start Now</a>
+                            <a href="{{ route('all-resources', ['all', 'resources']) }}" class="btn btn-dark py-3 px-4"></i>Browse Resources</a>
                         </div>
                     </div>
                 </div>
